@@ -1630,6 +1630,11 @@ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => i
 type InstanceType<T extends abstract new (...args: any) => any> = T extends abstract new (...args: any) => infer R ? R : any;
 
 /**
+ * Obtain the type that a predicate function is checking
+ */
+type PredicateType<T> = T extends (x: any) => x is infer U ? U : never;
+
+/**
  * Convert string literal type to uppercase
  */
 type Uppercase<S extends string> = intrinsic;
